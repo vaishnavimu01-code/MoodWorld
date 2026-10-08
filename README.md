@@ -122,3 +122,22 @@ World Description
         │  World Description +    │
         │  Text-to-Speech         │
         └─────────────────────────┘
+
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![MoodWorld Home Page](screenshots/home.png)
+
+### 🎭 World Generator
+
+![MoodWorld Generator](screenshots/generator.png)
+
+### 🌌 Generated World
+
+![Generated World](screenshots/result.png)
+
+### 🌌  Description
+
+![Description](screenshots/description.png)
