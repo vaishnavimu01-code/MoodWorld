@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MoodWorld | AI World Generator</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🌌 MoodWorld
+        </div>
+
+        <a
+            href="{{ url_for('generator') }}"
+            class="nav-button"
+        >
+            Create
+        </a>
+
+    </nav>
+
+
+    <main class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✨ Generative AI Experience
+            </div>
+
+            <h1>
+                Your Mood.
+                <br>
+                <span>Your World.</span>
+            </h1>
+
+            <p>
+                Transform your emotions into beautiful,
+                imaginative worlds using Generative AI.
+            </p>
+
+            <a
+                href="{{ url_for('generator') }}"
+                class="primary-button"
+            >
+                ✨ Create My World
+            </a>
+
+        </div>
+
+
+        <div class="hero-orb">
+
+            <div class="orb">
+                🌌
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🎭
+            </div>
+
+            <h3>
+                Choose Your Mood
+            </h3>
+
+            <p>
+                Select an emotion such as peaceful,
+                dreamy, mysterious or energetic.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🎨
+            </div>
+
+            <h3>
+                Generate a World
+            </h3>
+
+            <p>
+                AI transforms your emotion into
+                a unique visual environment.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔊
+            </div>
+
+            <h3>
+                Hear Your World
+            </h3>
+
+            <p>
+                Listen to an AI-generated explanation
+                of your created world.
+            </p>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

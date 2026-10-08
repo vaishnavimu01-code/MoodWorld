@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Your World | MoodWorld</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <nav class="navbar">
+
+        <a
+            href="{{ url_for('home') }}"
+            class="logo"
+        >
+            🌌 MoodWorld
+        </a>
+
+    </nav>
+
+
+    <main class="generator-page">
+
+        <div class="page-heading">
+
+            <div class="badge">
+                ✨ Create Your World
+            </div>
+
+            <h1>
+                Turn Your Mood Into a World
+            </h1>
+
+            <p>
+                Choose the elements of your world
+                and let Generative AI bring it to life.
+            </p>
+
+        </div>
+
+
+        {% if error %}
+
+        <div class="error-box">
+            ⚠️ {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <form
+            action="{{ url_for('generate') }}"
+            method="POST"
+            id="generatorForm"
+        >
+
+            <div class="form-grid">
+
+
+                <!-- MOOD -->
+
+                <div class="form-card">
+
+                    <label for="mood">
+                        🎭 Mood
+                    </label>
+
+                    <select
+                        name="mood"
+                        id="mood"
+                        required
+                    >
+
+                        <option value="Happy">
+                            😊 Happy
+                        </option>
+
+                        <option value="Peaceful" selected>
+                            😌 Peaceful
+                        </option>
+
+                        <option value="Romantic">
+                            💖 Romantic
+                        </option>
+
+                        <option value="Melancholic">
+                            😢 Melancholic
+                        </option>
+
+                        <option value="Anxious">
+                            😨 Anxious
+                        </option>
+
+                        <option value="Excited">
+                            🌟 Excited
+                        </option>
+
+                        <option value="Calm">
+                            🧘 Calm
+                        </option>
+
+                        <option value="Dreamy">
+                            🌌 Dreamy
+                        </option>
+
+                        <option value="Mysterious">
+                            👻 Mysterious
+                        </option>
+
+                        <option value="Energetic">
+                            🔥 Energetic
+                        </option>
+
+                        <option value="Hopeful">
+                            🌿 Hopeful
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ENVIRONMENT -->
+
+                <div class="form-card">
+
+                    <label for="environment">
+                        🌍 Environment
+                    </label>
+
+                    <select
+                        name="environment"
+                        id="environment"
+                        required
+                    >
+
+                        <option value="Enchanted Forest">
+                            🌲 Enchanted Forest
+                        </option>
+
+                        <option value="Futuristic City">
+                            🏙️ Futuristic City
+                        </option>
+
+                        <option value="Magical Island">
+                            🏝️ Magical Island
+                        </option>
+
+                        <option value="Mountain Landscape">
+                            🏔️ Mountain Landscape
+                        </option>
+
+                        <option value="Ocean">
+                            🌊 Ocean
+                        </option>
+
+                        <option value="Desert">
+                            🏜️ Desert
+                        </option>
+
+                        <option value="Fantasy Kingdom">
+                            🏰 Fantasy Kingdom
+                        </option>
+
+                        <option value="Dreamlike Garden">
+                            🌸 Dreamlike Garden
+                        </option>
+
+                        <option value="Space">
+                            🌌 Outer Space
+                        </option>
+
+                        <option value="Rainy City Street">
+                            🌧️ Rainy City Street
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TIME -->
+
+                <div class="form-card">
+
+                    <label for="time_of_day">
+                        🕐 Time
+                    </label>
+
+                    <select
+                        name="time_of_day"
+                        id="time_of_day"
+                    >
+
+                        <option value="Sunrise">
+                            🌅 Sunrise
+                        </option>
+
+                        <option value="Morning">
+                            ☀️ Morning
+                        </option>
+
+                        <option value="Afternoon">
+                            🌤️ Afternoon
+                        </option>
+
+                        <option value="Sunset" selected>
+                            🌇 Sunset
+                        </option>
+
+                        <option value="Night">
+                            🌙 Night
+                        </option>
+
+                        <option value="Midnight">
+                            🌌 Midnight
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- WEATHER -->
+
+                <div class="form-card">
+
+                    <label for="weather">
+                        🌦️ Weather
+                    </label>
+
+                    <select
+                        name="weather"
+                        id="weather"
+                    >
+
+                        <option value="Clear">
+                            ☀️ Clear
+                        </option>
+
+                        <option value="Rainy">
+                            🌧️ Rainy
+                        </option>
+
+                        <option value="Foggy" selected>
+                            🌫️ Foggy
+                        </option>
+
+                        <option value="Snowy">
+                            ❄️ Snowy
+                        </option>
+
+                        <option value="Stormy">
+                            ⛈️ Stormy
+                        </option>
+
+                        <option value="Magical">
+                            ✨ Magical
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- STYLE -->
+
+                <div class="form-card">
+
+                    <label for="style">
+                        🎨 Visual Style
+                    </label>
+
+                    <select
+                        name="style"
+                        id="style"
+                    >
+
+                        <option value="Cinematic">
+                            🎬 Cinematic
+                        </option>
+
+                        <option value="Fantasy" selected>
+                            ✨ Fantasy
+                        </option>
+
+                        <option value="Photorealistic">
+                            📷 Photorealistic
+                        </option>
+
+                        <option value="Surreal">
+                            🌀 Surreal
+                        </option>
+
+                        <option value="Anime">
+                            🌸 Anime
+                        </option>
+
+                        <option value="Cyberpunk">
+                            🤖 Cyberpunk
+                        </option>
+
+                        <option value="Watercolor">
+                            🎨 Watercolor
+                        </option>
+
+                        <option value="Digital Art">
+                            🖌️ Digital Art
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- CUSTOM DESCRIPTION -->
+
+            <div class="custom-card">
+
+                <label for="custom_description">
+                    ✨ Describe Your Vision
+                </label>
+
+                <textarea
+                    name="custom_description"
+                    id="custom_description"
+                    rows="5"
+                    placeholder="Example: I want the world to feel magical and nostalgic, with glowing trees, floating lanterns and a beautiful moon..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="generate-button"
+                id="generateButton"
+            >
+
+                <span id="buttonText">
+                    ✨ Generate My World
+                </span>
+
+                <span
+                    id="loadingText"
+                    style="display:none;"
+                >
+                    🌌 Creating your world...
+                </span>
+
+            </button>
+
+        </form>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+</body>
+
+</html>

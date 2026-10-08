@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Your Mood World | MoodWorld</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <nav class="navbar">
+
+        <a
+            href="{{ url_for('home') }}"
+            class="logo"
+        >
+            🌌 MoodWorld
+        </a>
+
+        <a
+            href="{{ url_for('generator') }}"
+            class="nav-button"
+        >
+            Create Another
+        </a>
+
+    </nav>
+
+
+    <main class="result-page">
+
+
+        <div class="page-heading">
+
+            <div class="badge">
+                ✨ AI Generated
+            </div>
+
+            <h1>
+                Your Mood World
+            </h1>
+
+            <p>
+                A visual representation of your
+                emotional world.
+            </p>
+
+        </div>
+
+
+        <!-- GENERATED IMAGE -->
+
+        <div class="image-card">
+
+            <img
+                src="{{ image_url }}"
+                alt="AI generated mood world"
+                class="generated-image"
+            >
+
+        </div>
+
+
+        <!-- DETAILS -->
+
+        <div class="details-grid">
+
+
+            <div class="detail-item">
+
+                <span>
+                    🎭 Mood
+                </span>
+
+                <strong>
+                    {{ mood }}
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>
+                    🌍 Environment
+                </span>
+
+                <strong>
+                    {{ environment }}
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>
+                    🕐 Time
+                </span>
+
+                <strong>
+                    {{ time_of_day }}
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>
+                    🌦️ Weather
+                </span>
+
+                <strong>
+                    {{ weather }}
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>
+                    🎨 Style
+                </span>
+
+                <strong>
+                    {{ style }}
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <section class="description-card">
+
+            <div class="description-header">
+
+                <h2>
+                    🌌 World Description
+                </h2>
+
+                <button
+                    class="listen-button"
+                    id="listenButton"
+                    onclick="speakDescription()"
+                >
+                    🔊 Listen
+                </button>
+
+            </div>
+
+
+            <div
+                id="descriptionText"
+                class="description-text"
+            >
+
+                {{ description }}
+
+            </div>
+
+
+            <!-- SPEECH CONTROLS -->
+
+            <div class="speech-controls">
+
+                <button
+                    onclick="pauseSpeech()"
+                    class="speech-button"
+                >
+                    ⏸ Pause
+                </button>
+
+                <button
+                    onclick="resumeSpeech()"
+                    class="speech-button"
+                >
+                    ▶ Resume
+                </button>
+
+                <button
+                    onclick="stopSpeech()"
+                    class="speech-button"
+                >
+                    ⏹ Stop
+                </button>
+
+            </div>
+
+        </section>
+
+
+        {% if custom_description %}
+
+        <section class="custom-result">
+
+            <h3>
+                ✨ Your Original Vision
+            </h3>
+
+            <p>
+                {{ custom_description }}
+            </p>
+
+        </section>
+
+        {% endif %}
+
+
+        <a
+            href="{{ url_for('generator') }}"
+            class="generate-button result-button"
+        >
+            🔄 Create Another World
+        </a>
+
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+</body>
+
+</html>
